@@ -1,0 +1,177 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fileWrap {
+  width: 600px;
+  height: 120px;
+}
+
+.excelFile {
+  display: none;
+}
+
+.fileLabel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 20px;
+  box-sizing: border-box;
+  padding: 32px;
+  border: 2px dashed #fff;
+  border-radius: 16px;
+}
+
+.fileLabel:hover {
+  border: 2px dashed #228be6;
+  color: #228be6;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.fileName {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.excel {
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+}
+
+.result {
+  width: 600px;
+  border: 2px dashed #fff;
+  border-radius: 16px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.count {
+  font-size: 20px;
+  color: #228be6;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.select {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.select:last-child {
+  margin-bottom: 0;
+}
+
+.selectWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.selectWrap select {
+  width: 240px;
+  padding: 8px;
+  outline: none;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+}
+
+.selectWrap select + .arrow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  font-size: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.selectWrap select + .arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 0;
+  height: 0;
+  border-radius: 4px;
+  border-top: 8px solid #868e96;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  transform: translateY(-50%);
+  transition: all 0.15s;
+}
+
+.selectWrap select:hover {
+  border: 1px solid #343a40;
+}
+
+.selectWrap select:focus {
+  border: 1px solid #228be6;
+}
+
+.selectWrap select:focus + .arrow::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.label {
+  display: inline-block;
+  font-size: 14px;
+  color: #343a40;
+  margin-right: 6px;
+}
+
+.desc {
+  display: inline-block;
+  font-size: 12px;
+  color: #343a40;
+}
+
+.completeBtn {
+  width: 100%;
+  height: 64px;
+  border-radius: 16px;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.completeBtn:hover {
+  border-color: #228be6;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.completeBtn .right {
+  width: 32px;
+  height: 32px;
+}
