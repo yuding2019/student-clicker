@@ -72,7 +72,6 @@ function Setting(props) {
           type="file"
           class={styles.excelFile}
           id="excelFile"
-          accept=".xlsx, .xls"
           onChange={handleExcelChange}
         />
       </div>
