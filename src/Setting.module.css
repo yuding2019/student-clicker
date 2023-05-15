@@ -92,7 +92,8 @@
   margin-bottom: 4px;
 }
 
-.selectWrap select {
+.selectWrap select, 
+.selectWrap input {
   width: 240px;
   padding: 8px;
   outline: none;
@@ -129,11 +130,13 @@
   transition: all 0.15s;
 }
 
-.selectWrap select:hover {
+.selectWrap select:hover,
+.selectWrap input:hover {
   border: 1px solid #343a40;
 }
 
-.selectWrap select:focus {
+.selectWrap select:focus,
+.selectWrap input:focus {
   border: 1px solid #228be6;
 }
 

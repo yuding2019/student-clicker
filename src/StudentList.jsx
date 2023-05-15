@@ -3,6 +3,7 @@ import styles from "./StudentList.module.css";
 
 function StudentList(props) {
   const [hideKey, setHideKey] = createSignal([]);
+  const [topSet, setTopSet] = createSignal([]);
 
   let list = [props.sheet];
   if (props.groupColumn) {
@@ -18,6 +19,15 @@ function StudentList(props) {
   }
 
   const handleStudentClick = (key) => {
+    if (hideKey().includes(key)) {
+      return;
+    }
+
+    if (topSet().length < props.topCount) {
+      setTopSet((prev) => {
+        return [...prev, key];
+      });
+    }
     setHideKey((prev) => {
       return [...prev, key];
     });
@@ -48,10 +58,21 @@ function StudentList(props) {
                       [styles.hidden]: hideKey().includes(
                         item[props.displayColumn]
                       ),
+                      [styles.topItem]: topSet().includes(
+                        item[props.displayColumn]
+                      ),
                     }}
                     onClick={[handleStudentClick, item[props.displayColumn]]}
                   >
-                    {item[props.displayColumn]}
+                    <div class={styles.front}>{item[props.displayColumn]}</div>
+                    <div class={styles.back}>
+                      <span class={styles.top}>
+                        {topSet().indexOf(item[props.displayColumn]) + 1}
+                      </span>
+                      <span class={styles.topName}>
+                        {item[props.displayColumn]}
+                      </span>
+                    </div>
                   </div>
                 )}
               </For>

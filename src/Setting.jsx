@@ -22,12 +22,25 @@ function Select(props) {
   );
 }
 
+function Input(props) {
+  return (
+    <div class={styles.select}>
+      <div class={styles.selectWrap}>
+        <span class={styles.label}>{props.label}</span>
+        <input onChange={props.onChange} value={props.value} />
+      </div>
+      <span class={styles.desc}>{props.desc}</span>
+    </div>
+  );
+}
+
 function Setting(props) {
   const [excelName, setExcelName] = createSignal("");
   const [sheet, setSheet] = createSignal(null);
 
-  const [groupColumn, setGroupColumn] = createSignal("");
-  const [displayColumn, setDisplayColumn] = createSignal("");
+  const [groupColumn, setGroupColumn] = createSignal("性别");
+  const [displayColumn, setDisplayColumn] = createSignal("姓名");
+  const [topCount, setTopCount] = createSignal(10);
 
   const handleExcelChange = (e) => {
     setExcelName(e.target.files[0].name);
@@ -51,6 +64,7 @@ function Setting(props) {
       sheet: sheet(),
       groupColumn: groupColumn(),
       displayColumn: displayColumn(),
+      topCount: topCount(),
     });
   };
 
@@ -100,6 +114,12 @@ function Setting(props) {
               }))}
               desc="使用选择的列进行分组"
               onChange={(e) => setGroupColumn(e.target.value)}
+            />
+            <Input
+              value={topCount()}
+              label="奖励前几名"
+              desc="奖励前几名完成者"
+              onChange={(e) => setTopCount(e.target.value)}
             />
           </div>
           <div class={styles.completeBtn} onClick={handleComplete}>
